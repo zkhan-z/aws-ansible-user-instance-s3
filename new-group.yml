@@ -1,16 +1,16 @@
 - hosts: webservers
   gather_facts: yes
   vars_files:
-    - key.yml
+    - your-vars-file
   tasks: 
     - name: Create new group with policy and add user
       iam_group:
         aws_access_key: "{{ AWS_ACCESS_KEY_ID }}"
         aws_secret_key: "{{ AWS_SECRET_ACCESS_KEY }}"
         ec2_region: "{{ AWS_REGION }}"
-        name: ansible_project
+        name: # provide a name
         managed_policy:
-          - arn:aws:iam::aws:policy/AdministratorAccess 
+          - # add your policy here
         users:
-          - fatema #user given above
+          -  #user given above
         state: present
