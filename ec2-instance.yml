@@ -1,14 +1,14 @@
 - hosts: webservers
   gather_facts: yes
   vars_files:
-    - key.yml
+    - your-vars-file
 
   vars:
-      region: us-east-1
-      instance_type: t2.nano
-      ami: ami-0a0ad6b70e61be944  # linux-2 ami image
-      keypair: key-key # pem file name
-      subnetid: subnet-57cad22d
+      region: # your-regiom
+      instance_type: # instance type
+      ami: # linux-2 ami image
+      keypair: # pem file name
+      subnetid:  # subnetid
       AWS_ACCESS_KEY_ID: # add-your-key
       AWS_SECRET_ACCESS_KEY: # add-your-key
   tasks:
@@ -24,9 +24,9 @@
          region: "{{ region }}"
          count: 1  # default
          count_tag:
-            Name: walid
+            Name: # provide a name for your count_tags
          instance_tags:
-            Name: kaku
+            Name: # provide a name for your instance_tag
          vpc_subnet_id: "{{ subnetid }}"
          assign_public_ip: yes
       register: ec2
