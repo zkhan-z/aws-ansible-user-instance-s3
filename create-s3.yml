@@ -1,9 +1,9 @@
 - hosts: webservers
   gather_facts: no
   vars_files:
-    - key.yml
+    - you-vars-file
   vars:
-    UNIQUE_BUCKET_NAME: pola-the-savage
+    UNIQUE_BUCKET_NAME: # provide your bucket name here
   tasks:
    - name: Create new S3 bucket
      aws_s3:
@@ -16,7 +16,7 @@
        aws_access_key: "{{ AWS_ACCESS_KEY_ID }}"
        aws_secret_key: "{{ AWS_SECRET_ACCESS_KEY }}"
        bucket: "{{ UNIQUE_BUCKET_NAME }}"
-       object: pola.html
-       src: /home/ec2-user/aws-tool/pola.html
+       object: # file you want to add to your bucket
+       src: # exact location # run env or pwd to find the exact path
        mode: put
        
