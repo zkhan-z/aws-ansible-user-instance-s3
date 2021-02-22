@@ -4,9 +4,9 @@
   tasks: 
     - name: Create new group with policy and add user
       iam_group:
-        aws_access_key: "{{ AWS_ACCESS_KEY_ID }}"
-        aws_secret_key: "{{ AWS_SECRET_ACCESS_KEY }}"
-        ec2_region: "{{ AWS_REGION }}"
+        aws_access_key: "{{ AWS_ACCESS_KEY_ID }}" # will be included in your vars file
+        aws_secret_key: "{{ AWS_SECRET_ACCESS_KEY }}" # will be included in your vars file
+        ec2_region: "{{ AWS_REGION }}" # will be included in your vars file
         name: # use same IAM name you provided
         managed_policy:
           - # add your policy here
