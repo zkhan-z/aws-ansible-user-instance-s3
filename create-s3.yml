@@ -1,7 +1,7 @@
 - hosts: webservers
   gather_facts: no
   vars_files:
-    - you-vars-file
+    - your-vars-file
   vars:
     UNIQUE_BUCKET_NAME: # provide your bucket name here
   tasks:
