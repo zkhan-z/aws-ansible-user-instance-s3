@@ -1,0 +1,13 @@
+- hosts: webservers
+  vars_files:
+    - your-vars-file
+  tasks:
+    - name: Create new IAM user
+      iam:
+        aws_access_key: "{{ AWS_ACCESS_KEY_ID }}" # will be included in your vars file
+        aws_secret_key: "{{ AWS_SECRET_ACCESS_KEY }}" # will be included in your vars file
+        ec2_region: "{{ AWS_REGION }}"
+        iam_type: user
+        state: present
+        name:  #give username
+        password: "{{ set_password }}" # will be included in your vars file

@@ -1,0 +1,22 @@
+- hosts: webservers
+  gather_facts: no
+  vars_files:
+    - your-vars-file
+  vars:
+    UNIQUE_BUCKET_NAME: # --> provide your bucket name here #
+  tasks:
+   - name: Create new S3 bucket
+     aws_s3:
+       aws_access_key: "{{ AWS_ACCESS_KEY_ID }}" # --> will be included in your vars file
+       aws_secret_key: "{{ AWS_SECRET_ACCESS_KEY }}" # --> will be included in your vars file
+       bucket: "{{ UNIQUE_BUCKET_NAME }}" # --> will be included in your vars file
+       mode: create  
+   - name: Add file to bucket
+     aws_s3:    
+       aws_access_key: "{{ AWS_ACCESS_KEY_ID }}" # --> will be included in your vars file
+       aws_secret_key: "{{ AWS_SECRET_ACCESS_KEY }}" # --> will be included in your vars file
+       bucket: "{{ UNIQUE_BUCKET_NAME }}" # --> will be included in your vars file
+       object: # --> file you want to add to your bucket
+       src: # --> exact location # run env or pwd to find the exact path
+       mode: put
+       
